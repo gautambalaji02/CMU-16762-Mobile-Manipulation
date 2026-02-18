@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/humble/lib/python3/dist-packages",
+        "~/stretch_ws/install/stretch_core/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/humble/lib/python3/dist-packages",
+        "~/stretch_ws/install/stretch_core/lib/python3/dist-packages"
+    ]
+}

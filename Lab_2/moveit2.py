@@ -38,6 +38,8 @@ class MoveMe(HelloNode):
             # TODO: Your code will likely go here. Note that I gave you a for loop already, which you can edit and use.
             # For base motion (x, y, theta) each goal state should be defined according to the robot's current position (or its previous goal).
             # Reminder: You can use the RViz GUI for MoveIt 2 to get a better intuition for what these goal positions should be.
+            moveit_plan
+
 
             moveit_plan.set_start_state_to_current_state()
             moveit_plan.set_goal_state(robot_state=goal_state)
