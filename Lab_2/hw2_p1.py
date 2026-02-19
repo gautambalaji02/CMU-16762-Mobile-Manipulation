@@ -8,12 +8,20 @@ import time
 import hello_helpers.hello_misc as hm
 import sys
 
-
+# Let us try to grab an object and then place it someplace else. 
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
-target_point = [0.5, 0.0, 0.15]
-target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitch, yaw]
+first_target_point = [1.0, 0.0, 0.15]
+first_target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitch, yaw]
 
+print("Our first target point: ", first_target_point)
+second_target_point = [0.5, 0.5, 0.15]
+second_target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, np.pi/2) # [roll, pitch, yaw]
+print("Our second target point: ", second_target_point)
+
+third_target_point = [0.5, -0.5, 0.2]
+third_target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
+print("Our third target point: ", third_target_point)
 
 # # Setup the Python API
 # robot = stretch_body.robot.Robot()
@@ -196,6 +204,12 @@ def main():
 
     # robot.stow()
     
-    move_to_grasp_goal(target_point, target_orientation)
+    move_to_grasp_goal(first_target_point, first_target_orientation)
+    print(get_current_grasp_pose())
+    
+    move_to_grasp_goal(second_target_point, second_target_orientation)
+    print(get_current_grasp_pose())
+    
+    move_to_grasp_goal(third_target_point, third_target_orientation)
     print(get_current_grasp_pose())
     
