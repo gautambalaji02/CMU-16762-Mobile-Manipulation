@@ -203,7 +203,7 @@ def main():
 
 
     # robot.stow()
-    
+    global first_target_point
     move_to_grasp_goal(first_target_point, first_target_orientation)
     print(get_current_grasp_pose())
     
