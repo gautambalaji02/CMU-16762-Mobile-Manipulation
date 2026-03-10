@@ -9,7 +9,7 @@ import threading
 import tf2_ros
 from tf2_geometry_msgs import TransformStamped
 from sensor_msgs.msg import JointState
-from lab3_visual_works import ik_ros_utils as ik
+import ik_ros_utils as ik
 import ikpy
 
 # Make sure to run:
@@ -148,10 +148,7 @@ class IKTargetFollowing(HelloNode):
         # TODO: -------------- end ---------------
 
 
-def main():
+if __name__ == '__main__':
     target_follower = IKTargetFollowing()
     target_follower.main()
     target_follower.new_thread.join()
-
-if __name__ == '__main__':
-    main()

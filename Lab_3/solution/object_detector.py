@@ -1,14 +1,13 @@
 import cv2
 import yaml
 import rclpy
-import os
 import os.path as osp
 from rclpy.node import Node
 from sensor_msgs.msg import Image, CameraInfo
 from geometry_msgs.msg import PoseStamped
 from cv_bridge import CvBridge, CvBridgeError
 from ultralytics import YOLO
-from lab3_visual_works import detection_utils
+import detection_utils
 import message_filters
 import numpy as np
 
@@ -146,12 +145,11 @@ class YOLOEObjectDetector(Node):
         # TODO: -------------- end ---------------
 
 
-def main():
+if __name__ == '__main__':
     rclpy.init()
 
     # load in the full list of object queries from the yaml file, as well as a target (if specified)
-    yaml_path = os.path.join(os.path.dirname(__file__), 'object_queries.yaml')
-    with open(yaml_path, 'r') as file:
+    with open('object_queries.yaml', 'r') as file:
         config = yaml.safe_load(file)
         obj_queries = config['queries']
 
@@ -159,6 +157,3 @@ def main():
     rclpy.spin(yolo_object_detector)
     yolo_object_detector.destroy_node()
     rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
